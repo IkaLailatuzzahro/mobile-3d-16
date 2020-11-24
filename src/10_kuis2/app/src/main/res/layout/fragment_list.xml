@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    >
+
+    <data>
+        <variable
+            name="fragment"
+            type="com.polinema.kuis2.fragments.ListFragment" />
+        <variable
+            name="vm"
+            type="com.polinema.kuis2.viewmodels.TracerViewModel" />
+        <variable
+            name="alumniList"
+            type="java.util.List" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/teal_200"
+        tools:context=".fragments.ListFragment">
+
+
+        <ImageView
+            android:id="@+id/imgLogo"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            app:layout_constraintTop_toTopOf="@+id/guide1"
+            app:layout_constraintLeft_toLeftOf="@+id/guide4"
+            android:src="@drawable/polinema_logo" />
+
+        <TextView
+            android:id="@+id/textLogo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:text="POLITRACDY"
+            android:textStyle="bold"
+            android:textSize="30dp"
+            android:textColor="@color/purple_700"
+            app:layout_constraintTop_toTopOf="@+id/guide1"
+            app:layout_constraintLeft_toLeftOf="@+id/guide5" />
+
+        <TextView
+            android:id="@+id/textDesc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:layout_marginLeft="10dp"
+            android:background="@color/purple_700"
+            android:text="Polinema Tracer Study"
+            android:textSize="18dp"
+            android:textColor="@color/white"
+            app:layout_constraintTop_toTopOf="@+id/guide1"
+            app:layout_constraintLeft_toLeftOf="@+id/guide5" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:orientation="vertical"
+            app:layout_constraintTop_toTopOf="@id/guide2">
+
+            <TextView
+                android:id="@+id/textData"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="@{vm.getAlumni()}"
+                android:textColor="@color/black"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium" />
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btnTambah"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:background="@color/purple_700"
+            android:text="Tambah Alumni"
+            android:textColor="@color/white"
+            android:onClick="@{(v) -> vm.onAddClick(v)}"
+            app:layout_constraintTop_toTopOf="@id/guide3"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"/>
+
+
+        <androidx.constraintlayout.widget.Guideline
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/guide1"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.05"/>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/guide2"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.2"/>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/guide3"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.9"/>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/guide4"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.15"/>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/guide5"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.4"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</layout>

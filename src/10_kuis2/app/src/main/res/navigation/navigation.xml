@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/list_dest">
+
+    <fragment
+        android:id="@+id/list_dest"
+        android:name="com.polinema.kuis2.fragments.ListFragment"
+        android:label="fragment_list"
+        tools:layout="@layout/fragment_list">
+        <action
+            android:id="@+id/alumni_action"
+            app:destination="@id/add_dest"/>
+    </fragment>
+    <fragment
+        android:id="@+id/add_dest"
+        android:name="com.polinema.kuis2.fragments.AddFragment"
+        android:label="fragment_add_data"
+        tools:layout="@layout/fragment_add">
+        <action
+            android:id="@+id/action_addFragment_to_listFragment"
+            app:destination="@id/list_dest"/>
+        <argument
+            android:name="requestKey"
+            app:argType="string"/>
+    </fragment>
+
+</navigation>
